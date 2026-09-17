@@ -1,493 +1,341 @@
-/* =====================================
-   PASSWORD
-===================================== */
+/* =========================================
+   HAPPY BIRTHDAY ANIS 💗
+   ========================================= */
 
 const correctPassword = "03042000";
 
-
-/* =====================================
-   VARIABEL
-===================================== */
-
 let currentSlide = 1;
-
 let enteredPassword = "";
 
 let backgroundStarted = false;
-
 let bouquetCreated = false;
+let isChangingSlide = false;
 
 
-
-/* =====================================
-   KEYPAD
-===================================== */
+/* =========================================
+   PASSWORD
+   ========================================= */
 
 function pressNumber(number) {
 
-
-    /*
-        Mulai musik ketika user
-        pertama kali menyentuh keypad.
-    */
-
     startBackgroundMusic();
 
-
-    /*
-        Maksimal 8 angka
-    */
-
-    if (
-        enteredPassword.length >= 8
-    ) {
-
+    if (enteredPassword.length >= 8) {
         return;
-
     }
-
-
-    /*
-        Tambahkan angka
-    */
 
     enteredPassword += number;
 
-
-    /*
-        Update display
-    */
-
     updatePasswordDisplay();
 
+    const wrongPassword =
+        document.getElementById("wrongPassword");
 
-    /*
-        Hapus pesan error
-    */
-
-    document.getElementById(
-        "wrongPassword"
-    ).innerText = "";
-
+    if (wrongPassword) {
+        wrongPassword.innerText = "";
+    }
 }
 
-
-
-/* =====================================
-   DISPLAY PASSWORD
-===================================== */
 
 function updatePasswordDisplay() {
 
-
     const display =
-        document.getElementById(
-            "passwordText"
-        );
+        document.getElementById("passwordText");
 
-
-    if (
-        enteredPassword.length === 0
-    ) {
-
-        display.innerText =
-            "••••••••";
-
+    if (!display) {
         return;
-
     }
 
+    if (enteredPassword.length === 0) {
 
-    /*
-        Angka yang sudah ditekan
-        akan terlihat.
+        display.innerText = "••••••••";
 
-        Angka yang belum ditekan
-        menjadi titik.
-    */
+        return;
+    }
 
     display.innerText =
         enteredPassword +
-        "•".repeat(
-            8 -
-            enteredPassword.length
-        );
-
+        "•".repeat(8 - enteredPassword.length);
 }
 
-
-
-/* =====================================
-   HAPUS ANGKA
-===================================== */
 
 function deleteNumber() {
 
-
     enteredPassword =
-        enteredPassword.slice(
-            0,
-            -1
-        );
-
+        enteredPassword.slice(0, -1);
 
     updatePasswordDisplay();
 
+    const wrongPassword =
+        document.getElementById("wrongPassword");
 
-    document.getElementById(
-        "wrongPassword"
-    ).innerText = "";
-
+    if (wrongPassword) {
+        wrongPassword.innerText = "";
+    }
 }
 
-
-
-/* =====================================
-   CEK PASSWORD
-===================================== */
 
 function checkPassword() {
 
+    const wrongPassword =
+        document.getElementById("wrongPassword");
 
-    /*
-        Password harus 8 angka
-    */
+    const display =
+        document.getElementById("passwordDisplay");
 
-    if (
-        enteredPassword.length !== 8
-    ) {
 
-        document.getElementById(
-            "wrongPassword"
-        ).innerText =
-            "Password harus 8 angka 💗";
+    if (enteredPassword.length !== 8) {
+
+        if (wrongPassword) {
+            wrongPassword.innerText =
+                "Password harus 8 angka 💗";
+        }
 
         return;
-
     }
 
 
+    if (enteredPassword === correctPassword) {
 
-    /*
-        PASSWORD BENAR
-    */
+        if (display) {
+            display.classList.add("correct");
+        }
 
-    if (
-        enteredPassword ===
-        correctPassword
-    ) {
+        if (wrongPassword) {
+            wrongPassword.innerText =
+                "Password benar! 💗";
+        }
 
+        setTimeout(() => {
 
-        const display =
-            document.getElementById(
-                "passwordDisplay"
-            );
+            nextSlide();
 
+        }, 700);
 
-        display.classList.add(
-            "correct"
-        );
+    } else {
 
+        if (wrongPassword) {
+            wrongPassword.innerText =
+                "Hmm... passwordnya salah 🥺";
+        }
 
-        document.getElementById(
-            "wrongPassword"
-        ).innerText =
-            "Password benar! 💗";
+        if (display) {
 
-
-        /*
-            Pindah ke slide 2
-        */
-
-        setTimeout(
-            function () {
-
-                nextSlide();
-
-            },
-            800
-        );
-
-
-    }
-
-
-    /*
-        PASSWORD SALAH
-    */
-
-    else {
-
-
-        const display =
-            document.getElementById(
-                "passwordDisplay"
-            );
-
-
-        document.getElementById(
-            "wrongPassword"
-        ).innerText =
-            "Hmm... passwordnya salah 🥺";
-
-
-        /*
-            Animasi getar
-        */
-
-        display.animate(
-
-            [
-
+            display.animate(
+                [
+                    {
+                        transform: "translateX(0)"
+                    },
+                    {
+                        transform: "translateX(-7px)"
+                    },
+                    {
+                        transform: "translateX(7px)"
+                    },
+                    {
+                        transform: "translateX(-7px)"
+                    },
+                    {
+                        transform: "translateX(0)"
+                    }
+                ],
                 {
-                    transform:
-                        "translateX(0)"
-                },
-
-                {
-                    transform:
-                        "translateX(-8px)"
-                },
-
-                {
-                    transform:
-                        "translateX(8px)"
-                },
-
-                {
-                    transform:
-                        "translateX(-8px)"
-                },
-
-                {
-                    transform:
-                        "translateX(0)"
+                    duration: 350
                 }
-
-            ],
-
-            {
-
-                duration: 350
-
-            }
-
-        );
-
+            );
+        }
     }
-
 }
 
 
-
-/* =====================================
+/* =========================================
    BACKGROUND MUSIC
-===================================== */
+   ========================================= */
 
 function startBackgroundMusic() {
 
-
-    if (
-        backgroundStarted
-    ) {
-
+    if (backgroundStarted) {
         return;
-
     }
 
-
     const music =
-        document.getElementById(
-            "backgroundMusic"
-        );
+        document.getElementById("backgroundMusic");
 
+    if (!music) {
+        return;
+    }
 
     music.volume = 0.25;
 
-
     music.play()
-        .then(
-            function () {
+        .then(() => {
 
-                backgroundStarted =
-                    true;
+            backgroundStarted = true;
 
-            }
-        )
-        .catch(
-            function () {
+        })
+        .catch(() => {
 
-                /*
-                    Browser bisa saja
-                    masih memblokir audio.
-                */
+            /* Browser mungkin menolak autoplay.
+               Akan dicoba lagi pada interaksi berikutnya. */
 
-            }
-        );
-
+        });
 }
 
 
-
-/* =====================================
-   PINDAH SLIDE
-===================================== */
+/* =========================================
+   SLIDE TRANSITION
+   ========================================= */
 
 function nextSlide() {
 
-
-    /*
-        Maksimal sampai slide 6
-    */
-
-    if (
-        currentSlide >= 6
-    ) {
-
+    if (currentSlide >= 6) {
         return;
-
     }
 
+    if (isChangingSlide) {
+        return;
+    }
 
-    /*
-        Hilangkan slide sekarang
-    */
+    isChangingSlide = true;
 
-    document
-        .getElementById(
-            "slide" +
-            currentSlide
-        )
-        .classList.remove(
-            "active"
+    const oldSlide =
+        document.getElementById(
+            "slide" + currentSlide
+        );
+
+    const nextSlideElement =
+        document.getElementById(
+            "slide" + (currentSlide + 1)
         );
 
 
-    /*
-        Pindah nomor slide
-    */
+    if (!oldSlide || !nextSlideElement) {
+
+        isChangingSlide = false;
+
+        return;
+    }
+
+
+    /* Animasi slide lama */
+
+    oldSlide.classList.add("slide-out");
+
+
+    /* Siapkan slide berikutnya */
+
+    nextSlideElement.classList.add("active");
+
 
     currentSlide++;
 
 
-    /*
-        Tampilkan slide baru
-    */
+    /* Setelah animasi selesai */
 
-    document
-        .getElementById(
-            "slide" +
-            currentSlide
-        )
-        .classList.add(
-            "active"
+    setTimeout(() => {
+
+        oldSlide.classList.remove(
+            "active",
+            "slide-out"
         );
 
+        isChangingSlide = false;
+
+    }, 400);
+
+
+    /* Pastikan halaman kembali ke atas */
+
+    nextSlideElement.scrollTop = 0;
 }
 
 
-
-/* =====================================
-   SLIDE 3
-   BUKA SURPRISE
-===================================== */
+/* =========================================
+   GIFT
+   ========================================= */
 
 function showBirthdayMessage() {
 
-
     const message =
-        document.getElementById(
-            "birthdayMessage"
-        );
-
+        document.getElementById("birthdayMessage");
 
     const gift =
-        document.getElementById(
-            "gift"
-        );
+        document.getElementById("gift");
 
 
-    /*
-        Jangan buka dua kali
-    */
-
-    if (
-        !message.classList.contains(
-            "hidden"
-        )
-    ) {
-
+    if (!message || !gift) {
         return;
-
     }
 
 
-    /*
-        Ubah hadiah
-    */
-
-    gift.innerText =
-        "🎉";
+    if (!message.classList.contains("hidden")) {
+        return;
+    }
 
 
-    /*
-        Tampilkan ucapan
-    */
+    gift.innerText = "🎉";
 
-    message.classList.remove(
-        "hidden"
+
+    /* Animasi gift */
+
+    gift.animate(
+        [
+            {
+                transform: "scale(1)"
+            },
+            {
+                transform: "scale(1.2) rotate(-5deg)"
+            },
+            {
+                transform: "scale(0.95) rotate(5deg)"
+            },
+            {
+                transform: "scale(1)"
+            }
+        ],
+        {
+            duration: 550,
+            easing: "ease-out"
+        }
     );
 
 
-    /*
-        Scroll sedikit
-    */
+    setTimeout(() => {
 
-    setTimeout(
-        function () {
+        message.classList.remove("hidden");
 
-            message.scrollIntoView({
+        message.animate(
+            [
+                {
+                    opacity: 0,
+                    transform: "translateY(15px)"
+                },
+                {
+                    opacity: 1,
+                    transform: "translateY(0)"
+                }
+            ],
+            {
+                duration: 500,
+                easing: "ease-out"
+            }
+        );
 
-                behavior:
-                    "smooth",
-
-                block:
-                    "nearest"
-
-            });
-
-        },
-        100
-    );
-
+    }, 300);
 }
 
 
-
-/* =====================================
-   SLIDE 4
-   BUNGA → BUKET
-===================================== */
+/* =========================================
+   BOUQUET
+   ========================================= */
 
 function makeBouquet() {
 
-
-    /*
-        Kalau buket sudah dibuat,
-        jangan lakukan apa-apa lagi.
-    */
-
-    if (
-        bouquetCreated
-    ) {
-
+    if (bouquetCreated) {
         return;
-
     }
 
-
-    bouquetCreated =
-        true;
+    bouquetCreated = true;
 
 
     const container =
@@ -495,18 +343,15 @@ function makeBouquet() {
             "flowerContainer"
         );
 
-
     const flower =
         document.getElementById(
             "singleFlower"
         );
 
-
     const instruction =
         document.getElementById(
             "flowerInstruction"
         );
-
 
     const message =
         document.getElementById(
@@ -514,104 +359,87 @@ function makeBouquet() {
         );
 
 
-    /*
-        Hilangkan bunga pertama
-    */
+    if (!container || !flower) {
+        return;
+    }
+
+
+    /* Bunga menghilang */
 
     flower.classList.add(
         "flower-disappear"
     );
 
 
-    /*
-        Setelah animasi selesai,
-        ubah menjadi buket.
-    */
+    /* Buket muncul */
 
-    setTimeout(
-        function () {
+    setTimeout(() => {
 
+        flower.innerText = "💐";
 
-            /*
-                Ubah emoji
-            */
+        flower.classList.remove(
+            "flower-disappear"
+        );
 
-            flower.innerText =
-                "💐";
+        flower.classList.add(
+            "bouquet-appear"
+        );
 
-
-            /*
-                Hapus animasi lama
-            */
-
-            flower.classList.remove(
-                "flower-disappear"
-            );
+        container.classList.add(
+            "bouquet"
+        );
 
 
-            /*
-                Tambahkan animasi buket
-            */
-
-            flower.classList.add(
-                "bouquet-appear"
-            );
-
-
-            /*
-                Tandai container
-                sebagai buket
-            */
-
-            container.classList.add(
-                "bouquet"
-            );
-
-
-            /*
-                Ubah tulisan
-            */
+        if (instruction) {
 
             instruction.innerHTML =
                 "Surprise! 💗";
 
+        }
 
-            /*
-                Tampilkan pesan
-            */
+
+        if (message) {
 
             message.classList.remove(
                 "hidden"
             );
 
+            message.animate(
+                [
+                    {
+                        opacity: 0,
+                        transform: "translateY(15px)"
+                    },
+                    {
+                        opacity: 1,
+                        transform: "translateY(0)"
+                    }
+                ],
+                {
+                    duration: 500
+                }
+            );
+        }
 
-        },
-        450
-    );
-
+    }, 450);
 }
 
 
-
-/* =====================================
-   SLIDE 6
-   PLAY LAGU
-===================================== */
+/* =========================================
+   BIRTHDAY SONG
+   ========================================= */
 
 function playSong() {
-
 
     const song =
         document.getElementById(
             "birthdaySong"
         );
 
-
     const button =
         document.getElementById(
             "playButton"
         );
-
 
     const backgroundMusic =
         document.getElementById(
@@ -619,74 +447,91 @@ function playSong() {
         );
 
 
-    /*
-        Matikan background music
-    */
-
-    backgroundMusic.pause();
+    if (!song) {
+        return;
+    }
 
 
+    /* Background music berhenti */
 
-    /*
-        PLAY
-    */
+    if (backgroundMusic) {
+        backgroundMusic.pause();
+    }
 
-    if (
-        song.paused
-    ) {
 
+    if (song.paused) {
 
         song.volume = 0.8;
 
+        song.play()
+            .then(() => {
 
-        song.play();
+                if (button) {
+                    button.innerText = "❚❚";
+                }
 
+            })
+            .catch(() => {
 
-        button.innerText =
-            "❚❚";
+                if (button) {
+                    button.innerText = "▶";
+                }
 
+            });
 
-    }
-
-
-    /*
-        PAUSE
-    */
-
-    else {
-
+    } else {
 
         song.pause();
 
-
-        button.innerText =
-            "▶";
-
+        if (button) {
+            button.innerText = "▶";
+        }
     }
-
 }
 
 
+/* =========================================
+   SONG SELESAI
+   ========================================= */
 
-/* =====================================
-   LAGU SELESAI
-===================================== */
-
-document
-    .getElementById(
+const birthdaySong =
+    document.getElementById(
         "birthdaySong"
-    )
-    .addEventListener(
+    );
+
+
+if (birthdaySong) {
+
+    birthdaySong.addEventListener(
         "ended",
         function () {
 
-
-            document
-                .getElementById(
+            const button =
+                document.getElementById(
                     "playButton"
-                )
-                .innerText =
-                "▶";
+                );
 
+            if (button) {
+                button.innerText = "▶";
+            }
         }
     );
+}
+
+
+/* =========================================
+   START BACKGROUND MUSIC
+   PADA INTERAKSI PERTAMA
+   ========================================= */
+
+document.addEventListener(
+    "click",
+    function () {
+
+        startBackgroundMusic();
+
+    },
+    {
+        once: false
+    }
+);
