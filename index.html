@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Birthday Surprise for Anis 💗</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================
+         BACKGROUND MUSIC
+    =================================== -->
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="music/background.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+
+    <!-- ==================================
+         DEKORASI FLOATING
+    =================================== -->
+
+    <div class="floating-decoration">
+
+        <span>💗</span>
+        <span>💕</span>
+        <span>🌸</span>
+        <span>🎀</span>
+        <span>💖</span>
+        <span>🌷</span>
+        <span>✨</span>
+        <span>💗</span>
+
+    </div>
+
+
+
+    <!-- ==================================
+         SLIDE 1
+         PASSWORD
+    =================================== -->
+
+    <section
+        class="slide active"
+        id="slide1"
+    >
+
+        <div class="card password-card">
+
+
+            <div class="teddy">
+
+                🧸
+
+            </div>
+
+
+            <h1>
+
+                Psst...
+
+            </h1>
+
+
+            <p class="main-text">
+
+                Aku punya surprise<br>
+                buat kamu 💗
+
+            </p>
+
+
+            <p class="small-text">
+
+                Tapi sebelum itu...
+
+            </p>
+
+
+            <h2 class="password-title">
+
+                🔐 Masukkan password
+
+            </h2>
+
+
+            <p class="small-text">
+
+                Password-nya adalah tanggal lahir kamu
+
+            </p>
+
+
+
+            <!-- PASSWORD DISPLAY -->
+
+            <div
+                class="password-display"
+                id="passwordDisplay"
+            >
+
+                <span id="passwordText">
+
+                    ••••••••
+
+                </span>
+
+            </div>
+
+
+
+            <!-- KEYPAD -->
+
+            <div class="keypad">
+
+
+                <button
+                    onclick="pressNumber('1')"
+                >
+                    1
+                </button>
+
+
+                <button
+                    onclick="pressNumber('2')"
+                >
+                    2
+                </button>
+
+
+                <button
+                    onclick="pressNumber('3')"
+                >
+                    3
+                </button>
+
+
+                <button
+                    onclick="pressNumber('4')"
+                >
+                    4
+                </button>
+
+
+                <button
+                    onclick="pressNumber('5')"
+                >
+                    5
+                </button>
+
+
+                <button
+                    onclick="pressNumber('6')"
+                >
+                    6
+                </button>
+
+
+                <button
+                    onclick="pressNumber('7')"
+                >
+                    7
+                </button>
+
+
+                <button
+                    onclick="pressNumber('8')"
+                >
+                    8
+                </button>
+
+
+                <button
+                    onclick="pressNumber('9')"
+                >
+                    9
+                </button>
+
+
+                <button
+                    class="delete-button"
+                    onclick="deleteNumber()"
+                >
+                    ⌫
+                </button>
+
+
+                <button
+                    onclick="pressNumber('0')"
+                >
+                    0
+                </button>
+
+
+                <button
+                    class="check-button"
+                    onclick="checkPassword()"
+                >
+                    ✓
+                </button>
+
+
+            </div>
+
+
+            <p
+                id="wrongPassword"
+                class="wrong-password"
+            ></p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================
+         SLIDE 2
+         HAPPY BIRTHDAY
+    =================================== -->
+
+    <section
+        class="slide"
+        id="slide2"
+    >
+
+        <div class="card">
+
+
+            <div class="birthday-decoration">
+
+                🎈 🧸 🎈
+
+            </div>
+
+
+            <p class="little-title">
+
+                TODAY IS YOUR SPECIAL DAY ✨
+
+            </p>
+
+
+            <h1 class="birthday-title">
+
+                HAPPY
+
+            </h1>
+
+
+            <h1 class="birthday-title">
+
+                BIRTHDAY
+
+            </h1>
+
+
+            <h2 class="anis-name">
+
+                ANIS! 🎂💗
+
+            </h2>
+
+
+            <div class="cake">
+
+                🎂
+
+            </div>
+
+
+            <p>
+
+                Hari ini adalah hari spesial kamu.
+                <br>
+                Semoga hari ini penuh kebahagiaan 💕
+
+            </p>
+
+
+            <button
+                class="main-button"
+                onclick="nextSlide()"
+            >
+
+                Lanjut 💕
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================
+         SLIDE 3
+         SURPRISE
+    =================================== -->
+
+    <section
+        class="slide"
+        id="slide3"
+    >
+
+        <div class="card">
+
+
+            <div
+                class="gift"
+                id="gift"
+            >
+
+                🎁
+
+            </div>
+
+
+            <h2>
+
+                Ada sesuatu untuk kamu...
+
+            </h2>
+
+
+            <p>
+
+                Tapi kamu harus membuka
+                surprise-nya dulu 👀
+
+            </p>
+
+
+            <button
+                class="main-button"
+                onclick="showBirthdayMessage()"
+            >
+
+                TAP HERE 🎁
+
+            </button>
+
+
+
+            <!-- UCAPAN -->
+
+            <div
+                id="birthdayMessage"
+                class="birthday-message hidden"
+            >
+
+
+                <div class="sparkles">
+
+                    ✨ 💗 ✨
+
+                </div>
+
+
+                <p class="message-big">
+
+                    Selamat ulang tahun,
+                    Anis! 🎂💕
+
+                </p>
+
+
+                <p>
+
+                    Semoga di umur yang baru ini,
+                    kamu selalu diberikan kesehatan,
+                    kebahagiaan, dan banyak hal
+                    baik dalam hidupmu. 💗
+
+                </p>
+
+
+                <p>
+
+                    Semoga semua yang kamu
+                    semogakan bisa tercapai
+                    satu per satu. ✨
+
+                </p>
+
+
+                <p>
+
+                    Semoga selalu ada alasan
+                    untuk kamu tersenyum
+                    setiap harinya. 🧸🌸
+
+                </p>
+
+
+                <button
+                    class="main-button"
+                    onclick="nextSlide()"
+                >
+
+                    Masih ada surprise 🌷
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================
+         SLIDE 4
+         BUKET BUNGA
+    =================================== -->
+
+    <section
+        class="slide"
+        id="slide4"
+    >
+
+        <div class="card flower-card">
+
+
+            <div class="small-bow">
+
+                🎀
+
+            </div>
+
+
+            <h2>
+
+                A Little Flower
+                For You 🌷
+
+            </h2>
+
+
+            <p id="flowerInstruction">
+
+                Awalnya cuma satu bunga...
+                <br>
+                coba tap bunganya 💗
+
+            </p>
+
+
+
+            <!-- ==================================
+                 BUNGA
+            =================================== -->
+
+            <div
+                id="flowerContainer"
+                class="flower-container"
+                onclick="makeBouquet()"
+            >
+
+                <span
+                    id="singleFlower"
+                    class="single-flower"
+                >
+
+                    🌷
+
+                </span>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 PESAN BUKET
+            =================================== -->
+
+            <div
+                id="bouquetMessage"
+                class="bouquet-message hidden"
+            >
+
+                <div class="sparkles">
+
+                    ✨ 🌸 ✨
+
+                </div>
+
+
+                <p class="bouquet-text">
+
+                    Ini buat kamu, Anis 💐💗
+
+                </p>
+
+
+                <p>
+
+                    Kalau satu bunga saja
+                    nggak cukup untuk menggambarkan
+                    betapa spesialnya kamu...
+
+                </p>
+
+
+                <p>
+
+                    jadi aku kasih satu buket
+                    sekalian. 🌷🌸🌹💐
+
+                </p>
+
+
+                <button
+                    class="main-button"
+                    onclick="nextSlide()"
+                >
+
+                    Lanjut 💗
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================
+         SLIDE 5
+         PESAN
+    =================================== -->
+
+    <section
+        class="slide"
+        id="slide5"
+    >
+
+        <div class="card">
+
+
+            <div class="big-decoration">
+
+                💐
+
+            </div>
+
+
+            <h2>
+
+                For You, Anis 💗
+
+            </h2>
+
+
+            <div class="letter">
+
+
+                <p>
+
+                    Hai Anis... 💕
+
+                </p>
+
+
+                <p>
+
+                    Di hari spesial kamu ini,
+                    aku cuma mau bilang:
+
+                </p>
+
+
+                <p>
+
+                    Semoga kamu selalu dikelilingi
+                    orang-orang yang tulus menyayangi
+                    kamu.
+
+                </p>
+
+
+                <p>
+
+                    Semoga setiap langkah kamu
+                    dipermudah, setiap harapanmu
+                    perlahan menjadi nyata, dan
+                    semoga selalu ada alasan untuk
+                    kamu tersenyum setiap harinya. ✨
+
+                </p>
+
+
+                <p>
+
+                    Semoga umur yang baru ini
+                    membawa banyak cerita indah
+                    buat kamu. 💗
+
+                </p>
+
+
+                <p class="love-text">
+
+                    Happy Birthday, Anis! 🎂💕
+
+                </p>
+
+
+            </div>
+
+
+            <button
+                class="main-button"
+                onclick="nextSlide()"
+            >
+
+                Ada satu lagi... 🎧
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================
+         SLIDE 6
+         MUSIC
+    =================================== -->
+
+    <section
+        class="slide"
+        id="slide6"
+    >
+
+        <div class="card music-card">
+
+
+            <div class="music-icon">
+
+                🎧
+
+            </div>
+
+
+            <h2>
+
+                Last Surprise 🎵
+
+            </h2>
+
+
+            <p>
+
+                Sekarang waktunya kamu
+                santai sebentar...
+
+            </p>
+
+
+            <p>
+
+                dan dengarkan lagu ini
+                khusus buat kamu 💗
+
+            </p>
+
+
+
+            <!-- MUSIC PLAYER -->
+
+            <div class="music-player">
+
+
+                <div class="album">
+
+                    💗
+
+                </div>
+
+
+                <div class="song-info">
+
+                    <strong>
+
+                        For Anis 💕
+
+                    </strong>
+
+
+                    <span>
+
+                        Birthday Song 🎵
+
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="play-button"
+                    id="playButton"
+                    onclick="playSong()"
+                >
+
+                    ▶
+
+                </button>
+
+
+            </div>
+
+
+
+            <audio
+                id="birthdaySong"
+                preload="auto"
+            >
+
+                <source
+                    src="music/birthday-song.mp3"
+                    type="audio/mpeg"
+                >
+
+            </audio>
+
+
+            <p class="last-text">
+
+                Made with love 💗
+
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================
+         JAVASCRIPT
+    =================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1330 @@
+/* =====================================
+   RESET
+===================================== */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow: hidden;
+
+    background: #fff3f7;
+
+    color: #805365;
+
+}
+
+
+
+/* =====================================
+   SLIDE
+===================================== */
+
+.slide {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            #ffd5e5 0%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 90%,
+            #f8c4da 0%,
+            transparent 30%
+        ),
+
+        #fff4f8;
+
+}
+
+
+.slide.active {
+
+    display: flex;
+
+    animation:
+        slideAppear
+        0.7s ease;
+
+}
+
+
+
+/* =====================================
+   CARD
+===================================== */
+
+.card {
+
+    width:
+        min(100%, 550px);
+
+    max-height: 95vh;
+
+    overflow-y: auto;
+
+    padding:
+        40px 35px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.72
+        );
+
+    border:
+        2px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        );
+
+    box-shadow:
+
+        0 20px 60px
+        rgba(
+            190,
+            95,
+            130,
+            0.18
+        );
+
+    backdrop-filter:
+        blur(12px);
+
+}
+
+
+
+/* =====================================
+   TEXT
+===================================== */
+
+h1 {
+
+    color: #d85786;
+
+    font-size: 50px;
+
+    line-height: 1.05;
+
+    margin:
+        5px 0;
+
+}
+
+
+h2 {
+
+    color: #c34e7b;
+
+    font-size: 27px;
+
+    margin:
+        15px 0;
+
+}
+
+
+p {
+
+    color: #815567;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin:
+        12px 0;
+
+}
+
+
+.main-text {
+
+    font-size: 22px;
+
+}
+
+
+.small-text {
+
+    font-size: 15px;
+
+    color: #956578;
+
+}
+
+
+.little-title {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    color: #d66a94;
+
+}
+
+
+
+/* =====================================
+   DECORATION
+===================================== */
+
+.teddy {
+
+    font-size: 90px;
+
+    margin-bottom: 5px;
+
+    animation:
+        teddyFloat
+        2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+.birthday-decoration {
+
+    font-size: 45px;
+
+}
+
+
+.cake {
+
+    font-size: 65px;
+
+    margin:
+        10px;
+
+}
+
+
+.big-decoration {
+
+    font-size: 85px;
+
+    animation:
+        teddyFloat
+        2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+.music-icon {
+
+    font-size: 90px;
+
+    animation:
+        teddyFloat
+        2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+.small-bow {
+
+    font-size: 45px;
+
+}
+
+
+
+/* =====================================
+   PASSWORD
+===================================== */
+
+.password-title {
+
+    margin-top: 20px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.password-display {
+
+    width: 100%;
+
+    height: 65px;
+
+    margin:
+        18px 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border:
+        3px solid
+        #f1abc5;
+
+    border-radius: 20px;
+
+    background: white;
+
+    color: #c74f7d;
+
+    font-size: 25px;
+
+    letter-spacing: 6px;
+
+    transition:
+        0.3s ease;
+
+}
+
+
+.password-display.correct {
+
+    border-color:
+        #e76d9b;
+
+    background:
+        #ffe1ed;
+
+    transform:
+        scale(1.03);
+
+}
+
+
+
+/* =====================================
+   KEYPAD
+===================================== */
+
+.keypad {
+
+    width: 300px;
+
+    max-width: 100%;
+
+    margin:
+        10px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.keypad button {
+
+    height: 55px;
+
+    border-radius: 16px;
+
+    border:
+        2px solid
+        #f2b1c9;
+
+    background: white;
+
+    color: #c4517c;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        0.15s ease;
+
+}
+
+
+.keypad button:hover {
+
+    background:
+        #ffe2ed;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.keypad button:active {
+
+    transform:
+        scale(0.9);
+
+}
+
+
+.keypad .check-button {
+
+    background:
+        #e76d9b;
+
+    color: white;
+
+    border-color:
+        #e76d9b;
+
+}
+
+
+.keypad .delete-button {
+
+    background:
+        #fff0f5;
+
+}
+
+
+
+/* =====================================
+   BUTTON
+===================================== */
+
+.main-button {
+
+    border: none;
+
+    border-radius: 40px;
+
+    padding:
+        15px 30px;
+
+    margin-top: 15px;
+
+    background:
+        #e873a1;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(
+            210,
+            90,
+            135,
+            0.25
+        );
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.main-button:hover {
+
+    background:
+        #d95f8e;
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+}
+
+
+.main-button:active {
+
+    transform:
+        scale(0.94);
+
+}
+
+
+
+/* =====================================
+   PASSWORD ERROR
+===================================== */
+
+.wrong-password {
+
+    min-height: 25px;
+
+    color: #df4f73;
+
+    font-size: 14px;
+
+}
+
+
+
+/* =====================================
+   GIFT
+===================================== */
+
+.gift {
+
+    font-size: 100px;
+
+    margin:
+        10px;
+
+    animation:
+        giftShake
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+
+/* =====================================
+   BIRTHDAY MESSAGE
+===================================== */
+
+.birthday-message {
+
+    margin-top: 20px;
+
+    padding:
+        20px;
+
+    border-radius:
+        25px;
+
+    background:
+        rgba(
+            255,
+            224,
+            236,
+            0.7
+        );
+
+    animation:
+        messageAppear
+        0.7s ease;
+
+}
+
+
+.message-big {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #ce507d;
+
+}
+
+
+.sparkles {
+
+    font-size: 22px;
+
+}
+
+
+
+/* =====================================
+   HIDDEN
+===================================== */
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+
+/* =====================================
+   BUKET BUNGA
+===================================== */
+
+.flower-container {
+
+    width: 240px;
+
+    height: 240px;
+
+    margin:
+        15px auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition:
+        0.4s ease;
+
+}
+
+
+.single-flower {
+
+    display: inline-block;
+
+    font-size: 95px;
+
+    filter:
+        drop-shadow(
+            0 8px 10px
+            rgba(
+                180,
+                80,
+                120,
+                0.15
+            )
+        );
+
+    animation:
+        flowerFloat
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+.flower-disappear {
+
+    animation:
+        flowerDisappear
+        0.45s
+        ease
+        forwards;
+
+}
+
+
+.bouquet-appear {
+
+    font-size: 145px;
+
+    animation:
+        bouquetAppear
+        0.9s
+        cubic-bezier(
+            0.175,
+            0.885,
+            0.32,
+            1.275
+        );
+
+}
+
+
+.flower-container.bouquet {
+
+    cursor: default;
+
+}
+
+
+.bouquet-message {
+
+    animation:
+        messageAppear
+        0.8s ease;
+
+}
+
+
+.bouquet-text {
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    color: #d65383;
+
+}
+
+
+
+/* =====================================
+   LETTER
+===================================== */
+
+.letter {
+
+    padding:
+        20px;
+
+    margin:
+        20px 0;
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(
+            255,
+            232,
+            241,
+            0.75
+        );
+
+    border:
+        1px dashed
+        #eca2bd;
+
+}
+
+
+.letter p {
+
+    font-size: 15px;
+
+}
+
+
+.love-text {
+
+    color:
+        #d65383 !important;
+
+    font-size:
+        20px !important;
+
+    font-weight:
+        bold;
+
+}
+
+
+
+/* =====================================
+   MUSIC PLAYER
+===================================== */
+
+.music-player {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding:
+        15px;
+
+    margin:
+        25px 0;
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(
+            255,
+            224,
+            237,
+            0.8
+        );
+
+    text-align: left;
+
+}
+
+
+.album {
+
+    width: 55px;
+
+    height: 55px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 15px;
+
+    background:
+        #f4a8c2;
+
+    font-size: 25px;
+
+}
+
+
+.song-info {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.song-info strong {
+
+    color:
+        #c64f7c;
+
+    font-size: 15px;
+
+}
+
+
+.song-info span {
+
+    color:
+        #8c6271;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+
+}
+
+
+.play-button {
+
+    width: 48px;
+
+    height: 48px;
+
+    padding: 0;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background:
+        #e36c99;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+}
+
+
+.last-text {
+
+    font-size: 13px;
+
+    color:
+        #bc718d;
+
+}
+
+
+
+/* =====================================
+   FLOATING DECORATION
+===================================== */
+
+.floating-decoration {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 50;
+
+    overflow: hidden;
+
+}
+
+
+.floating-decoration span {
+
+    position: absolute;
+
+    bottom: -50px;
+
+    opacity: 0.55;
+
+    font-size: 20px;
+
+    animation:
+        floatingUp
+        9s
+        linear
+        infinite;
+
+}
+
+
+.floating-decoration span:nth-child(1) {
+
+    left: 8%;
+
+    animation-delay: 0s;
+
+}
+
+
+.floating-decoration span:nth-child(2) {
+
+    left: 20%;
+
+    animation-delay: 2s;
+
+}
+
+
+.floating-decoration span:nth-child(3) {
+
+    left: 35%;
+
+    animation-delay: 4s;
+
+}
+
+
+.floating-decoration span:nth-child(4) {
+
+    left: 50%;
+
+    animation-delay: 1s;
+
+}
+
+
+.floating-decoration span:nth-child(5) {
+
+    left: 65%;
+
+    animation-delay: 3s;
+
+}
+
+
+.floating-decoration span:nth-child(6) {
+
+    left: 80%;
+
+    animation-delay: 5s;
+
+}
+
+
+.floating-decoration span:nth-child(7) {
+
+    left: 90%;
+
+    animation-delay: 6s;
+
+}
+
+
+.floating-decoration span:nth-child(8) {
+
+    left: 45%;
+
+    animation-delay: 7s;
+
+}
+
+
+
+/* =====================================
+   ANIMATION
+===================================== */
+
+@keyframes slideAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes teddyFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px);
+
+    }
+
+}
+
+
+@keyframes giftShake {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    25% {
+
+        transform:
+            rotate(-6deg);
+
+    }
+
+    75% {
+
+        transform:
+            rotate(6deg);
+
+    }
+
+}
+
+
+@keyframes messageAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes flowerFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-3deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px)
+            rotate(3deg);
+
+    }
+
+}
+
+
+@keyframes flowerDisappear {
+
+    from {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            scale(0);
+
+    }
+
+}
+
+
+@keyframes bouquetAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0)
+            rotate(-20deg);
+
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.15)
+            rotate(5deg);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0deg);
+
+    }
+
+}
+
+
+@keyframes floatingUp {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+    }
+
+}
+
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media
+(max-width: 500px) {
+
+
+    .slide {
+
+        padding:
+            10px;
+
+    }
+
+
+    .card {
+
+        padding:
+            28px 18px;
+
+        border-radius:
+            28px;
+
+    }
+
+
+    h1 {
+
+        font-size:
+            42px;
+
+    }
+
+
+    h2 {
+
+        font-size:
+            24px;
+
+    }
+
+
+    .teddy {
+
+        font-size:
+            75px;
+
+    }
+
+
+    .password-display {
+
+        height:
+            58px;
+
+        font-size:
+            22px;
+
+    }
+
+
+    .keypad {
+
+        width:
+            270px;
+
+    }
+
+
+    .keypad button {
+
+        height:
+            50px;
+
+    }
+
+
+    .flower-container {
+
+        width:
+            200px;
+
+        height:
+            200px;
+
+    }
+
+
+    .single-flower {
+
+        font-size:
+            85px;
+
+    }
+
+
+    .bouquet-appear {
+
+        font-size:
+            125px;
+
+    }
+
+
+    .letter {
+
+        padding:
+            15px;
+
+    }
+
+
+    .letter p {
+
+        font-size:
+            14px;
+
+    }
+
+}
