@@ -6,7 +6,6 @@
     <title>Happy Birthday Anis 💗</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <!-- BACKGROUND MUSIC -->
@@ -14,214 +13,118 @@
         <source src="background.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- BIRTHDAY SONG -->
     <audio id="birthdaySong" preload="auto">
         <source src="birthday-song.mp3" type="audio/mpeg">
     </audio>
 
-
-    <!-- ==================== SLIDE 1 ==================== -->
+    <!-- SLIDE 1 -->
     <section class="slide active" id="slide1">
-
         <div class="decor teddy teddy-1">🧸</div>
         <div class="decor heart heart-1">💗</div>
         <div class="decor flower flower-1">🌸</div>
-        <div class="decor heart heart-2">💕</div>
 
         <div class="card password-card">
-
-            <div class="big-teddy">🧸</div>
-
             <div class="small-bow">🎀</div>
-
-            <h1>Psst... 🤫</h1>
-
-            <h2>Aku punya surprise buat kamu 💗</h2>
-
-            <p>
-                Tapi sebelum itu...<br>
-                masukin password rahasianya dulu 🥺
+            <h1>Psst... Aku punya surprise buat kamu 💗</h1>
+            <p class="password-description">
+                Masukkan password rahasia berdasarkan tanggal lahirmu ✨
             </p>
 
-            <div class="birthday-hint">
-                🎂 Password = tanggal lahir kamu
-            </div>
-
-            <div id="passwordDisplay" class="password-display">
+            <div id="passwordDisplay">
                 <span id="passwordText">••••••••</span>
             </div>
 
             <div class="keypad">
-
                 <button onclick="pressNumber('1')">1</button>
                 <button onclick="pressNumber('2')">2</button>
                 <button onclick="pressNumber('3')">3</button>
-
                 <button onclick="pressNumber('4')">4</button>
                 <button onclick="pressNumber('5')">5</button>
                 <button onclick="pressNumber('6')">6</button>
-
                 <button onclick="pressNumber('7')">7</button>
                 <button onclick="pressNumber('8')">8</button>
                 <button onclick="pressNumber('9')">9</button>
-
-                <button class="delete-button" onclick="deleteNumber()">⌫</button>
+                <button onclick="deleteNumber()">⌫</button>
                 <button onclick="pressNumber('0')">0</button>
-                <button class="check-button" onclick="checkPassword()">✓</button>
-
+                <button onclick="checkPassword()">✓</button>
             </div>
 
-            <p id="wrongPassword" class="wrong-password"></p>
-
+            <p id="wrongPassword"></p>
         </div>
-
     </section>
 
-
-    <!-- ==================== SLIDE 2 ==================== -->
+    <!-- SLIDE 2 -->
     <section class="slide" id="slide2">
-
         <div class="decor teddy teddy-2">🧸</div>
-        <div class="decor heart heart-3">💗</div>
+        <div class="decor heart heart-2">💗</div>
         <div class="decor flower flower-2">🌷</div>
 
-        <div class="card birthday-card">
-
-            <div class="confetti">✨ 🎀 ✨</div>
-
-            <div class="big-cake">🎂</div>
-
-            <h1 class="birthday-title">
-                HAPPY<br>
-                BIRTHDAY
-            </h1>
-
-            <h2 class="anis-name">
-                ANIS! 💗
-            </h2>
-
-            <p>
-                Hari ini adalah hari spesial kamu 🎉
-            </p>
-
-            <p class="cute-text">
-                Jadi aku punya sedikit sesuatu<br>
-                yang aku buat khusus buat kamu 🧸🌷
-            </p>
-
-            <button class="main-button" onclick="nextSlide()">
-                Buka Surprise 🎁
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================== SLIDE 3 ==================== -->
-    <section class="slide" id="slide3">
-
-        <div class="decor heart heart-4">💕</div>
-        <div class="decor teddy teddy-3">🧸</div>
-        <div class="decor flower flower-3">🌸</div>
-
-        <div class="card gift-card">
-
+        <div class="card">
             <div class="small-bow">🎀</div>
-
-            <h2>
-                Ada sesuatu buat kamu... 💗
-            </h2>
-
+            <h1>HAPPY BIRTHDAY ANIS! 🎂💗</h1>
             <p>
-                Coba tap hadiahnya 🎁
+                Hari ini adalah hari spesial untuk seseorang yang juga spesial ✨
             </p>
-
-            <div
-                id="gift"
-                class="gift"
-                onclick="showBirthdayMessage()"
-            >
-                🎁
-            </div>
-
-            <div
-                id="birthdayMessage"
-                class="birthday-message hidden"
-            >
-
-                <div class="sparkles">
-                    ✨ 💗 ✨
-                </div>
-
-                <h2>
-                    Surprise! 🎉
-                </h2>
-
-                <p>
-                    Selamat ulang tahun, Anis! 🥳💗
-                </p>
-
-                <p>
-                    Semoga hari ini penuh dengan<br>
-                    senyum, kebahagiaan, dan hal-hal indah 🌷
-                </p>
-
-                <button
-                    class="main-button"
-                    onclick="nextSlide()"
-                >
-                    Lanjut 💗
-                </button>
-
-            </div>
-
+            <p>
+                Ada sedikit surprise yang sudah aku siapkan buat kamu...
+            </p>
+            <button class="main-button" onclick="nextSlide()">Lanjut 💗</button>
         </div>
-
     </section>
 
+    <!-- SLIDE 3 -->
+    <section class="slide" id="slide3">
+        <div class="decor teddy teddy-3">🧸</div>
+        <div class="decor heart heart-3">💞</div>
 
-    <!-- ==================== SLIDE 4 ==================== -->
+        <div class="card">
+            <div class="small-bow">🎀</div>
+            <h2>Ada hadiah buat kamu 🎁</h2>
+            <p>Tap hadiahnya untuk membuka surprise ✨</p>
+
+            <div id="gift" onclick="showBirthdayMessage()">🎁</div>
+
+            <div id="birthdayMessage" class="birthday-message hidden">
+                <h3>Surprise! 🎉💗</h3>
+                <p>
+                    Semoga hari ulang tahunmu dipenuhi kebahagiaan,
+                    senyum, dan hal-hal manis yang kamu suka. ✨
+                </p>
+                <p>
+                    Ini kecil, tapi dibuat khusus buat kamu. 🧸💗
+                </p>
+                <button class="main-button" onclick="nextSlide()">Lanjut 💗</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 4 -->
     <section class="slide" id="slide4">
-
         <div class="decor teddy teddy-4">🧸</div>
         <div class="decor heart heart-5">💗</div>
         <div class="decor flower flower-4">🌸</div>
 
         <div class="card flower-card">
-
             <div class="small-bow">🎀</div>
-
-            <h2>
-                A Little Flower For You 🌷
-            </h2>
+            <h2>A Little Flower For You 🌷</h2>
 
             <p id="flowerInstruction">
                 Awalnya cuma satu bunga...<br>
                 coba tap bunganya 💗
             </p>
 
-            <div
-                id="flowerContainer"
-                class="flower-container"
-                onclick="makeBouquet()"
-            >
-                <span
-                    id="singleFlower"
-                    class="single-flower"
-                >
-                    🌷
-                </span>
+            <div id="flowerContainer"
+                 class="flower-container"
+                 onclick="makeBouquet()">
+
+                <span id="singleFlower"
+                      class="single-flower">🌷</span>
             </div>
 
-            <div
-                id="bouquetMessage"
-                class="bouquet-message hidden"
-            >
+            <div id="bouquetMessage"
+                 class="bouquet-message hidden">
 
-                <div class="sparkles">
-                    ✨ 🌸 ✨
-                </div>
+                <div class="sparkles">✨ 🌸 ✨</div>
 
                 <p class="bouquet-text">
                     Ini buat kamu, Anis 💐💗
@@ -233,152 +136,81 @@
                     🌷🌸🌹💐
                 </p>
 
-                <button
-                    class="main-button"
-                    onclick="nextSlide()"
-                >
+                <button class="main-button" onclick="nextSlide()">
                     Lanjut 💗
                 </button>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- ==================== SLIDE 5 ==================== -->
+    <!-- SLIDE 5 -->
     <section class="slide" id="slide5">
-
         <div class="decor teddy teddy-5">🧸</div>
-        <div class="decor heart heart-6">💗</div>
-        <div class="decor flower flower-5">🌷</div>
+        <div class="decor heart heart-4">💗</div>
 
-        <div class="card message-card">
-
+        <div class="card">
             <div class="small-bow">🎀</div>
-
-            <h2>
-                Untuk Anis 💗
-            </h2>
-
-            <div class="letter">
-
-                <p>
-                    Happy birthday, Anis! 🎂💗
-                </p>
-
-                <p>
-                    Semoga di umur yang baru ini,
-                    semua hal baik datang menghampiri kamu.
-                </p>
-
-                <p>
-                    Semoga kamu selalu diberikan
-                    kesehatan, kebahagiaan, dan banyak alasan
-                    untuk tersenyum setiap hari. 🌷
-                </p>
-
-                <p>
-                    Jangan lupa untuk selalu percaya
-                    kalau kamu adalah seseorang yang berharga
-                    dan pantas mendapatkan hal-hal baik. 🧸💗
-                </p>
-
-                <p>
-                    Terima kasih sudah menjadi seseorang
-                    yang begitu spesial.
-                </p>
-
-                <p class="last-message">
-                    Semoga hari ulang tahunmu
-                    seindah senyummu. 💐✨
-                </p>
-
-            </div>
-
-            <button
-                class="main-button"
-                onclick="nextSlide()"
-            >
-                Ada Satu Lagi 🎵
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================== SLIDE 6 ==================== -->
-    <section class="slide" id="slide6">
-
-        <div class="decor teddy teddy-6">🧸</div>
-        <div class="decor heart heart-7">💗</div>
-        <div class="decor flower flower-6">🌸</div>
-
-        <div class="card music-card">
-
-            <div class="small-bow">🎀</div>
-
-            <div class="music-icon">
-                🎵
-            </div>
-
-            <h2>
-                A Special Song For You 💗
-            </h2>
+            <h2>Untuk Anis 💗</h2>
 
             <p>
-                Sekarang waktunya dengarkan
-                lagu spesialnya 🎧
+                Selamat ulang tahun yaa! 🎂✨
+            </p>
+
+            <p>
+                Semoga di umur yang baru ini,
+                semua hal baik datang satu per satu.
+                Semoga kamu selalu dikelilingi orang-orang
+                yang sayang sama kamu.
+            </p>
+
+            <p>
+                Jangan lupa bahagia, jangan terlalu keras
+                sama diri sendiri, dan tetap jadi Anis
+                yang selalu punya senyum manis. 🧸💗
+            </p>
+
+            <p>
+                Sekali lagi, happy birthday! 🎉🌷
+            </p>
+
+            <button class="main-button" onclick="nextSlide()">
+                Ada satu lagi... 🎵
+            </button>
+        </div>
+    </section>
+
+    <!-- SLIDE 6 -->
+    <section class="slide" id="slide6">
+        <div class="decor heart heart-1">💗</div>
+        <div class="decor flower flower-3">🌸</div>
+
+        <div class="card">
+            <div class="small-bow">🎀</div>
+
+            <div class="music-icon">🎵</div>
+
+            <h2>Special Song For You 💗</h2>
+
+            <p>
+                Sekarang waktunya dengarkan lagu
+                yang sudah disiapkan khusus untukmu. ✨
             </p>
 
             <div class="music-player">
+                <p>Tap tombol play 🎶</p>
 
-                <div class="album">
-                    🎵
-                </div>
-
-                <div class="song-info">
-
-                    <strong>
-                        Happy Birthday 💗
-                    </strong>
-
-                    <span>
-                        A special song for Anis
-                    </span>
-
-                </div>
-
-                <button
-                    id="playButton"
-                    class="play-button"
-                    onclick="playSong()"
-                >
+                <button id="playButton"
+                        onclick="playSong()">
                     ▶
                 </button>
-
             </div>
 
-            <p class="music-note">
-                🎀 Tap tombol play untuk mendengarkan 🎀
+            <p>
+                Happy Birthday, Anis! 🎂💗✨
             </p>
-
-            <div class="final-hearts">
-                💗 💕 💗
-            </div>
-
-            <p class="final-text">
-                Happy Birthday, Anis! 🎂🌷
-            </p>
-
         </div>
-
     </section>
 
-
     <script src="script.js"></script>
-
 </body>
 </html>
